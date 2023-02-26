@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@400;700&family=Signika:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/57070be855.js" crossorigin="anonymous"></script>
+  <!-- Tailwind Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <title>inspectr</title>
+</head>
+<body class="bg-sand">
+  <nav class="relative mx-auto p-4 bg-banana">
+    <p class="text-2xl text-darkTeal flex justify-center font-serif font-bold ">inspectr</p>
+  </nav>
+
+  <div class="px-10 py-10 mt-20 flex flex-col-reverse items-center justify-center lg:flex-row lg:space-y-0 lg:space-x-32">
+    <div class="w-full flex flex-col jusitfy-center items-center lg:w-fit">
+      <form class="relative px-10 py-14 mt-16 rounded-md max-w-lg w-full bg-darkSand flex justify-center items-center space-y-10 flex-col lg:px-20 lg:py-14 lg:w-fit lg:max-w-xl lg:mt-0" id="pwdChecker">
+        <div class="flex flex-col space-y-3">
+          <h1 class="text-2xl text-center text-darkTeal font-serif">Password Strength Checker</h1>
+          <p class="text-center text-md text-maroon font-sans">Enter a <span id="pwdStrong" class="font-bold hover:cursor-pointer">strong password</span></p>
+          <div class="absolute z-40 hidden top-36 left-20  bg-sand shadow-md px-6 py-4 rounded-md lg:top-36 lg:left-10" id="pwdInfo">
+            <p class="text-xs text-maroon leading-[159.5%] max-w-xs" id="pwdMsg">A strong password shall have at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.</p>
+          </div>
+        </div>
+  
+        <div class="flex flex-col w-full space-y-3">
+          <div class="relative">
+            <input type="password" id="pwdSet" class="px-6 py-4 bg-white text-maroon font-sans rounded-md text-sm placeholder-maroon placeholder:opacity-50 focus:outline-none w-full" placeholder="Password">
+            <i class="fa-solid fa-eye right-5 text-maroon top-5 absolute hover:cursor-pointer"></i>
+          </div>
+          <p class="text-sm hidden font-bold text-red-500" id="alert">This is not a strong password</p>
+          <p class="text-sm hidden font-bold text-leaf" id="alert-success">Good job! This is a strong password</p>
+          <p class="text-xs hidden text-leaf font-bold" id="lowercase">Lowercase: <span id="lowercaseStatus" class="font-thin">check</span></p>
+          <p class="text-xs hidden text-leaf font-bold" id="uppercase">Uppercase: <span id="uppercaseStatus" class="font-thin">check</span></p>
+          <p class="text-xs hidden text-leaf font-bold" id="digit">Digit: <span id="digitStatus" class="font-thin">check</span></p>
+          <p class="text-xs hidden text-leaf font-bold" id="character">Special Character: <span id="characterStatus" class="font-thin">check</span></p>
+          <p class="text-xs hidden text-leaf font-bold" id="charCount">At least 8 characters: <span id="charCountStatus" class="font-thin">check</span></p>
+        </div>
+      </form>
+  
+      
+      <!-- toggle -->
+      <form class="px-10 py-14 mt-16 rounded-md max-w-lg w-full bg-darkSand hidden justify-center items-center space-y-10 flex-col lg:px-20 lg:py-14 lg:w-fit lg:max-w-xl lg:mt-0" id="tagRemover">
+        <div class="flex flex-col relative space-y-3">
+          <h1 class="text-2xl text-center text-darkTeal font-serif">HTML Tag Remover</h1>
+          <p class="text-center text-md text-maroon font-sans">Enter something with HTML tags 
+            ( ex. <strong>&lt;span&gt;</strong> Text <strong>&lt;/span&gt;</strong> ) and let us cleanup your text!</p> 
+        </div>
+  
+        <div class="flex flex-col w-full space-y-3">
+          <textarea type="text" id="tagSet" class="p-6 bg-white text-maroon font-sans rounded-md text-sm placeholder-maroon focus:outline-none w-full placeholder:opacity-50" placeholder="Paste text here..."></textarea>
+          <a href="#" id="tagRemoveBtn" class="px-6 py-4 bg-teal rounded-lg text-white font-serif font-bold capitalize hover:scale-105 text-center">Remove tags!</a>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="flex flex-col justify-center items-center space-y-10 lg:items-start">
+      <h1 class="text-darkTeal text-center text-5xl font-serif font-light lg:text-left lg:max-w-md lg:text-6xl">Welcome to inspectr</h1>
+      <div class="flex flex-col space-y-5 items-center lg:items-start">
+        <p class="text-maroon text-center text-lg max-w-lg leading-[159.5%] lg:max-w-sm lg:text-left">This web app inspects and verifies your text inputs depending on the category you have chosen!</p>
+        <div class="flex flex-col space-y-5 lg:space-x-0 lg:space-y-2">
+          <div class="flex flex-col space-y-5 md:flex-row md:space-y-0 md:space-x-5 lg:space-y-0 lg:space-x-5 lg:flex-row">
+            <a href="#" id="pscBtn" class="px-6 py-4 bg-teal rounded-lg text-white font-serif font-bold capitalize hover:scale-105">Password Strength Checker</a>
+            <a href="#" id="htmlBtn" class="px-6 py-4 bg-banana rounded-lg text-leaf font-serif font-bold capitalize hover:scale-105">HTML Tag Remover</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mx-auto py-4 px-10 bg-leaf mt-32">
+    <div class="flex justify-between">
+      <p class="text-white font-serif font-bold text-lg">inspectr</p>
+      <p class="text-white font-bold">&copy;<span class="font-light" id="year"> 2023</span></p>
+    </div>
+  </footer>
+</body>
+<script src="app.js"></script>
+<script src="tagRemover.js"></script>
+</html>
