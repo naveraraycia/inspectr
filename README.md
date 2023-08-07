@@ -1,4 +1,4 @@
-# inspectr
+# Inspectr
 ## Introduction
 inspectr is a web application that is all about inspecting user inputs. It contains a password strength checker and an HTML Tag Remover. 
 
